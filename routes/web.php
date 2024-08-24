@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\StudentController; // Asegúrate de importar el controlador
+
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -14,4 +16,7 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+
+    // Definición de rutas para el recurso 'students'
+    Route::resource('students', StudentController::class);
 });
